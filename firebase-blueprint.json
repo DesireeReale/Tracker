@@ -1,0 +1,41 @@
+{
+  "entities": {
+    "userProfile": {
+      "title": "User Profile",
+      "description": "Stores user financial settings",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "salary": { "type": "number" },
+        "savingsGoal": { "type": "number" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "salary", "savingsGoal"]
+    },
+    "transaction": {
+      "title": "Transaction",
+      "description": "Income or expense record",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "category": { "type": "string" },
+        "amount": { "type": "number" },
+        "date": { "type": "string", "format": "date-time" },
+        "description": { "type": "string" },
+        "type": { "type": "string", "enum": ["expense", "fixed", "income"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "category", "amount", "date", "type"]
+    }
+  },
+  "firestore": {
+    "/userProfiles/{userId}": {
+      "schema": "userProfile",
+      "description": "User specific settings"
+    },
+    "/transactions/{transactionId}": {
+      "schema": "transaction",
+      "description": "Global transactions collection"
+    }
+  }
+}
