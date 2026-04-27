@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Lexend:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-label: "Lexend", sans-serif;
+
+  --color-surface: #f8f9ff;
+  --color-surface-dim: #cbdbf5;
+  --color-surface-bright: #f8f9ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #eff4ff;
+  --color-surface-container: #e5eeff;
+  --color-surface-container-high: #dce9ff;
+  --color-surface-container-highest: #d3e4fe;
+  --color-on-surface: #0b1c30;
+  --color-on-surface-variant: #45474c;
+  --color-outline: #75777d;
+  --color-primary: #091426;
+  --color-on-primary: #ffffff;
+  --color-secondary: #10b981;
+  --color-secondary-container: #d1fae5;
+  --color-on-secondary-container: #065f46;
+  --color-tertiary: #111516;
+  --color-primary-fixed: #d8e3fb;
+  --color-primary-fixed-dim: #bcc7de;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+.dark {
+  --color-surface: #0a0f1d;
+  --color-surface-container-lowest: #141b2d;
+  --color-surface-container-low: #0f172a;
+  --color-surface-container: #1e293b;
+  --color-on-surface: #f1f5f9;
+  --color-on-surface-variant: #94a3b8;
+  --color-primary: #38bdf8;
+  --color-on-primary: #0f172a;
+  --color-primary-fixed: #1e293b;
+  --color-outline-variant: #334155;
+  --color-secondary: #34d399;
+  --color-secondary-container: rgba(52, 211, 153, 0.15);
+  --color-on-secondary-container: #34d399;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-on-surface font-sans antialiased transition-colors duration-300;
+  }
+}
+
+.glass-card {
+  @apply bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border border-white/20 dark:border-white/5;
+}
+
+.ambient-shadow {
+  @apply shadow-[0px_12px_32px_rgba(30,41,59,0.04)] dark:shadow-[0px_12px_32px_rgba(0,0,0,0.4)];
+}
